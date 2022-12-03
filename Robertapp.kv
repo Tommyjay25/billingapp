@@ -1,0 +1,185 @@
+ScreenManager:
+    Screen:
+        name:"Pantalla principal"
+        FloatLayout:
+            id:principal
+            Button:
+                text:"Reportes"
+                pos_hint:{"x":0.1,"y":0.20}
+                size_hint:(0.10,0.10)
+                on_release:
+                    app.getentradas()
+                on_press:
+                    app.getsalidas()
+            Button:
+                text:"Guardar entrada"
+                pos_hint:{"x":0.5,"y":0.20}
+                size_hint:(0.2,0.10)
+                on_release:
+                    app.savedbent()
+            Button:
+                text:"Guardar gasto"
+                pos_hint:{"x":0.7,"y":0.20}
+                size_hint:(0.20,0.10)
+                on_release:
+                    app.savedbsalida()
+            TextInput:
+                id:dia
+                hint_text:"Dia"
+                pos_hint:{"x":0.2,"y":0.8}
+                size_hint:(0.10,0.05)
+            Button:
+                id:mes
+                text:"Mes"
+                pos_hint:{"x":0.4,"y":0.8}
+                size_hint:(0.10,0.05)
+                on_release:app.menumes.open()
+               
+            Button:
+                text:"Invntario"
+                pos_hint:{"x":0.3,"y":0.20}
+                size_hint:(0.10,0.10)
+                on_release:
+                    app.abririnv()
+                        
+            TextInput:
+                id:año
+                hint_text:"Año"
+                pos_hint:{"x":0.7,"y":0.8}
+                size_hint:(0.10,0.05)
+            TextInput:  
+                id:Entrada   
+                hint_text:"Entrada"
+                pos_hint:{"x":0.55,"y":0.5}
+                size_hint:(0.30,0.05)
+            TextInput:
+                id:conceptentrada    
+                hint_text:"Concepto de la entrada"
+                pos_hint:{"x":0.55,"y":0.4}
+                size_hint:(0.30,0.05)    
+            TextInput:
+                id:gastos
+                hint_text:"Gastos"
+                pos_hint:{"x":0.2,"y":0.5}
+                size_hint:(0.30,0.05) 
+            TextInput:
+                id:concetpgastos
+                hint_text:"Concepto del Gastos"
+                pos_hint:{"x":0.2,"y":0.4}
+                size_hint:(0.30,0.05)
+                          
+        
+    Screen:
+        name:"Pantalla Reportes"
+        FloatLayout:
+            id:reporte
+        
+            Button:   
+                text:"Pagina principal"
+                pos_hint:{"x":0.15,"y":0.1}
+                size_hint:(0.25,0.10)
+                on_release:
+                    app.volver()
+
+            ScrollView:
+                pos_hint:{"x":0.5,"y":0.25}
+                size_hint:(0.5,0.6)
+                id:ReportesGastos
+
+            ScrollView:
+                pos_hint:{"x":0,"y":0.25}
+                size_hint:(0.5,0.6)
+                id:ReportesEntradas
+
+            Label:
+                id:Ingresos
+                font_size:15
+                color:(0,0,0,1)
+                pos_hint:{"x":0.2,"y":0.88}
+                size_hint:(0.1,0.1)
+            Label:
+                id:Salidas
+                color:(0,0,0,1)
+                pos_hint:{"x":0.7,"y":0.88}
+                size_hint:(0.1,0.1)
+            Label:
+                id:Total
+                color:(0,0,0,1)
+                pos_hint:{"x":0.6,"y":0.15}
+                size_hint:(0.10,0.1)
+    Screen:
+        name:"Hoja de inventario"
+        FloatLayout:
+            id:inventario
+
+            ScrollView:
+                pos_hint:{"x":0,"y":0.2}
+                size_hint:(0.8,0.8)
+                id:listinventario
+
+            Button:   
+                text:"Pagina principal"
+                pos_hint:{"x":0.15,"y":0.1}
+                size_hint:(0.25,0.10)
+                on_release:
+                    app.destroyinv()
+            Button:
+                text:"Agregar o borrar \narticulo de inventario"
+                pos_hint:{"x":0.45,"y":0.1}
+                size_hint:(0.20,0.10)
+                on_release:
+                    app.pagagregar()
+
+
+    Screen:
+        name:"Articulos inventario"
+        FloatLayout:
+            id:Agregarinv
+            TextInput:
+                id:Nombrearticulo
+                hint_text:"Nombre del articulo"
+                pos_hint:{"x":0.15,"y":0.7}
+                size_hint:(0.35,0.05)
+            TextInput:
+                id:Precio
+                hint_text:"Precio"
+                pos_hint:{"x":0.15,"y":0.6}
+                size_hint:(0.35,0.05)
+            TextInput:
+                id:Costo
+                hint_text:"Costo"
+                pos_hint:{"x":0.15,"y":0.5}
+                size_hint:(0.35,0.05)
+            TextInput:
+                id:Cantidad
+                hint_text:"Cantidad"
+                pos_hint:{"x":0.15,"y":0.4}
+                size_hint:(0.35,0.05)
+            TextInput:
+                id:Mercancia
+                hint_text:"Tipo de mercancia"
+                pos_hint:{"x":0.15,"y":0.3}
+                size_hint:(0.35,0.05)
+            Button:
+                text:"Guardar articulo"
+                pos_hint:{"x":0.4,"y":0.1}
+                size_hint:(0.25,0.1)
+                on_release:app.insertinventario()
+            ScrollView:
+                pos_hint:{"x":0.5,"y":0.25}
+                size_hint:(0.5,0.6)
+                id:BuscadorArticulo    
+            Button:
+                text:"Buscar articulo"
+                pos_hint:{"x":0.65,"y":0.1}
+                size_hint:(0.25,0.1)
+                on_release:
+                    app.busqueda()
+
+            Button:
+                text:"Volver atras"
+                pos_hint:{"x":0.1,"y":0.1}
+                size_hint:(0.25,0.1)
+                on_release:
+                    app.abririnv()
+                                    
